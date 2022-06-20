@@ -12,7 +12,21 @@
 
 // config JSON and form data reponse
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}));
+
+
+// Solve CORS
+app.use(cors({igincredentials:true, origin: "http://localhost:3000" }));
+
+
+// Upload directory
+
+app.use("/uploads",express.static(path.join(__dirname,"/uploads")));
+
+
+
+// DB connection
+require("./config/db.js")
 
 
 // routes

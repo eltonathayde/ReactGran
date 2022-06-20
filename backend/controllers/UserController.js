@@ -50,8 +50,15 @@ const register = async(req,res) =>{
         token: generateToken(newUser._id),
      });
 };
+ 
 
-module.exports= {
+// login do usuario
+const login = (req,res) =>{
+     res.send("Login")
+}
+
+module.exports = {
     register,
+    login,
 
 };

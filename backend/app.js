@@ -10,26 +10,26 @@
  const app = express()
 
 
-// config JSON and form data reponse
+// configurção de resposta de JSON E FORMDATA
 app.use(express.json())
 app.use(express.urlencoded({extended: false}));
 
 
-// Solve CORS
+// resvolvendo problema do cors
 app.use(cors({igincredentials:true, origin: "http://localhost:3000" }));
 
 
-// Upload directory
+// diretorio de upload
 
 app.use("/uploads",express.static(path.join(__dirname,"/uploads")));
 
 
 
-// DB connection
+// DB conexão
 require("./config/db.js")
 
 
-// routes
+// rotas
  const router = require("./routes/Router.js");
 
  app.use(router)

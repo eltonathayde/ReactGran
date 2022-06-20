@@ -20,7 +20,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const register = async(req,res) =>{
     res.send("Registro")
-}
+};
 
 module.exports= {
     register,

@@ -78,10 +78,18 @@ const login = async (req,res) => {
       profileImage:user.profileImage,
       token: generateToken(user._id),
    });
+};
+
+// resgatando usuario autenticado 
+const getCurrentUser = async (req,res) => {
+   const user = req.user;
+   
+   res.status(200).json(user);
 }
 
 module.exports = {
     register,
     login,
+    getCurrentUser
 
 };

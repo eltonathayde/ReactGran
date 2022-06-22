@@ -19,11 +19,15 @@ try {
     
     const verifed = jwt.verify(token,jwtSecret)
 
-    req.user = await  User.findByIdVE(verifed.id).select("-password");
+    req.user = await  User.findById(verifed.id).select("-password");
 
     next();
     
 } catch (error) {
     res.status(401).json({erros:["Token inválido."]})
 }
+}
+
+module.exports = {
+    authGuard,
 }

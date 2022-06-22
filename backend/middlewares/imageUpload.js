@@ -26,7 +26,7 @@ const imageStorage = multer.diskStorage({
 })
 
 
-const imagemUpload= multer({
+const imagemUpload = multer({
     storage:imageStorage,
     // verificando o tipo de extensão da imagem
     fileFilter(req,file ,cb){

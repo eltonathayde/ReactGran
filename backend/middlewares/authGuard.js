@@ -29,5 +29,5 @@ try {
 }
 
 module.exports = {
-    authGuard,
+    authGuard
 }

@@ -4,7 +4,8 @@ const User = require("../models/User")
 
 
 // conexão com banco de dados 
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const { json } = require("express");
 
 
 // inserindo uma foto com usuario relacionado a ela 
@@ -135,11 +136,38 @@ const updatePhoto = async(req,res) => {
         res.status(200).json({photo,message:"Foto atualizada com sucesso!"})
 }
 
+// funcionalidade do like 
+
+const likePhoto = async(req,res) =>{
+    const {id} = req.params
+    const reqUser = req.user 
+
+    const photo = await Photo.findById(id)
+    //  checando se a foto existe
+    if(!photo) {
+        res.status(404).json({errors : ["Foto não encontrada"]})
+        return
+    }
+    // checando se o usuario ja deu like  na foto 
+    if(photo.likes.includes(reqUser._id)){
+        res.status(422).json({errors:["você já curtiu a foto."]})
+        return;
+    }
+    //  adicionar o id do usaario no arrya de likes
+    photo.likes.push(reqUser._id)
+
+    photo.save()
+    
+    res.status(200).json({photoId: id, userId: reqUser._id,massage:"A foto foi curtida"})
+
+}
+
 module.exports = {
     insertPhoto,
     deletePhoto,
     getAllPhotos,
     getUserPhotos,
     getPhotoById,
-    updatePhoto
+    updatePhoto,
+    likePhoto,
 }

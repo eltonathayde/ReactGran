@@ -7,7 +7,7 @@ import {BsSearch,BsHouseDoorFill,BsFillPersonFill,BsFillCameraFill} from "react-
 const Navbar = () => {
   return (
       <nav id="nav">
-        <Link to="/">ReactGran</Link>
+        <Link to="/">FanáticosGran</Link>
         <form id="search-form">
           <BsSearch/>
           <input type="text" placeholder="Pesquisar"/>

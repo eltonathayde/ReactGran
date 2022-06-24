@@ -15,7 +15,7 @@ const Register = () => {
 
   return (
     <div>
-      <h2>ReactGran</h2>
+      <h2>FanáticosGran</h2>
       <p className="subtitle">Cadastre-se para ver as fotos dos seus amigos.</p>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Nome"/>

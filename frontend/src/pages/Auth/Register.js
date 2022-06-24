@@ -14,13 +14,13 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <div id="register">
       <h2>FanáticosGran</h2>
       <p className="subtitle">Cadastre-se para ver as fotos dos seus amigos.</p>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Nome"/>
         <input type="email" placeholder="E-email"/>
-        <inpt  type="password" placeholder="Senha"/>
+        <input  type="password" placeholder="Senha"/>
         <input type="password" placeholder="Confirme sua senha"/>
         <input type="submit" value="Cadastrar"/>
       </form>

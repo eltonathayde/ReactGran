@@ -22,7 +22,7 @@ const userCreateValidation = () => {
             .withMessage("A confirmação de senha é obrigatória.")  
             .custom((value,{req})=>{
                 if(value != req.body.password){
-                    throw new Error ("AS senhas não são iguais.")
+                    throw new Error ("As senhas não são iguais.")
                 }
                 return true;
             })  
@@ -51,7 +51,7 @@ const userUpdateValidation = () => {
         body("password")
           .optional()
           .isLength({min:8})
-          .withMessage("A senha precisa ter no mínimo 5 caracteres."),
+          .withMessage("A senha precisa ter no mínimo 8 caracteres."),
      ]
 }
 

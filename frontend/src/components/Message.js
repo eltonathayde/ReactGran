@@ -1,10 +1,10 @@
  import "./Message.css"
 
- import React from 'react'
+
  
- const Message = ( msg,type) => {
+ const Message = ({msg,type}) => {
    return (
-     <div className={`massage ${type}`}>
+     <div className={`message ${type}`}>
         <p>{msg}</p>
      </div>
    )

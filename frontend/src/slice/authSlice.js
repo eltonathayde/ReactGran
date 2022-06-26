@@ -1,6 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Action } from "history";
-import thunk from "redux-thunk";
 import authService from "../services/authService";
 
 // pegando o usuario do localStorage
@@ -20,12 +18,13 @@ async(user, thunkAPI) =>{
 
     const data = await authService.register(user)
 
-    // checagem de erros 
+    // checagem de erros, rejeitando requisição se tiver erros
 
     if(data.errors){
         return thunkAPI.rejectWithValue(data.errors[0])
     }
-     return data
+
+     return data;
 }
 );
 
@@ -34,25 +33,30 @@ export const authSlice =  createSlice({
     initialState,
     reducers:{
         reset: (state) => {
-            state.loading = false
-            state.error = false
-            state.success = false
+            state.loading = false;
+            state.error = false;
+            state.success = false;
         }
     },
     extraReducers: (builder) => {
         builder.addCase(register.pending,(state) => {
-            state.loading = true 
-            state.error = false
-        }).addCase(register.fulfilled,(state, action) =>{
-            state.loading = false
-            state.success = true
-            state.error = null
-            state.user = action.payload
-        }).addCase(register.rejected,(state, action) =>{
-            state.loading = false
-            state.error = action.payload
+            state.loading = true ;
+            state.error = false;
+        })
+        .addCase(register.fulfilled,(state, action) =>{
+            state.loading = false;
+            state.success = true;
+            state.error = null;
+            state.user = action.payload;
+            
+            // quando a requisição é rejeitada vem para esse caso, informando os erros
+        })
+        .addCase(register.rejected, (state, action) =>{
+            state.loading = false;
+            state.error = action.payload;
             state.user = null
         })
+   
     }
 })
 export const {reset} = authSlice.actions

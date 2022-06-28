@@ -88,7 +88,7 @@ export const authSlice =  createSlice({
 })
 
 // login  do usuario
-export const login = createAsyncThunk("auth/register",
+export const login = createAsyncThunk("auth/login",
 async(user, thunkAPI) =>{
 
     const data = await authService.login(user)

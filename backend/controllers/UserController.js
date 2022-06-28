@@ -26,7 +26,7 @@ const register = async(req,res) =>{
     const user =await User.findOne({email})
 
     if(user){
-        res.status(422).json({erros:["Por favor, utiize outro e-mail"]})
+        res.status(422).json({errors:["Por favor, utiize outro e-mail"]})
     }
     
     // gerando o hash da senha 
@@ -62,14 +62,14 @@ const login = async (req,res) => {
    // checagem de usuario, se ele existe
 
    if(!user){
-      res.status(404).json({erros: ["Usuário não encontrados."]})
+      res.status(404).json({errors: ["Usuário não encontrados."]})
       return 
    }
 
    // checagem se a senha do usuario são iguais 
 
    if(!(await bcrypt.compare(password,user.password))){
-      res.status(422).json({erros: ["Senha inválida."]})
+      res.status(422).json({errors: ["Senha inválida."]})
       return
    }
 

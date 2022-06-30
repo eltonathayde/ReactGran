@@ -3,7 +3,7 @@ import{api, requestConfig} from '../utils/config'
 
 // Pegando informações do usuario
 const profile = async (data,token) => {
-        const config = requestConfig("GET", data,token)
+        const config = requestConfig("GET", data, token)
 
         try {
 

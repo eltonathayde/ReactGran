@@ -117,6 +117,7 @@ const update = async(req,res) => {
    if(bio){
       user.bio = bio
    }
+   
    await user.save();
 
    res.status(200).json(user);
@@ -124,7 +125,7 @@ const update = async(req,res) => {
 
 // pegando o usuario pelo id da requisição 
 
-const getUSerByid = async(req,res) => {
+const getUserByid = async(req,res) => {
    const {id} = req.params
 
       try {
@@ -151,6 +152,6 @@ module.exports = {
     login,
     getCurrentUser,
     update,
-    getUSerByid
+    getUserByid
 
 };

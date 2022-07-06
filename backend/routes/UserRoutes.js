@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 // importando controllers
-const {register, login, getCurrentUser,update, getUSerByid} = require("../controllers/UserController");
+const {register, login, getCurrentUser,update, getUserByid} = require("../controllers/UserController");
 
 
 
@@ -22,7 +22,7 @@ router.post("/register",userCreateValidation(),validate, register);
 router.post("/login",loginValidation(),validate, login);
 router.get("/profile",authGuard,getCurrentUser);
 router.put("/", authGuard, userUpdateValidation(), validate, imagemUpload.single("profileImage"),update)
-router.get("/:id", getUSerByid);
+router.get("/:id", getUserByid);
 
 
 module.exports = router;

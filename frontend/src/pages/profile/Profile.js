@@ -35,6 +35,10 @@ const Profile = () => {
         dispatch(getUserDetails(id))
     }, [dispatch,id])
 
+    const submitHandle = (e) => {
+        e.preventDefault()
+    }
+
     if (loading){
         return <p>Carregando...</p>
     }

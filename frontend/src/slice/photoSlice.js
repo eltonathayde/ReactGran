@@ -66,7 +66,7 @@ export const deletePhoto = createAsyncThunk(
 // atualizando uma foto
 
 export const updatePhoto = createAsyncThunk(
-    "photo/delete",
+    "photo/update",
     async(photoData,thunkAPI) =>{
         const token = thunkAPI.getState().auth.user.token
 
@@ -126,8 +126,8 @@ export const photoSlice= createSlice({
             state.loading = false;
             state.sucess = true;
             state.error = null;
-            state.photos = state.photos.filter((photos)=>{
-                return photos._id !== action.payload.id
+            state.photos = state.photos.filter((photo)=>{
+                return photo._id !== action.payload.id
             })
 
             state.message= action.payload.message
@@ -146,7 +146,7 @@ export const photoSlice= createSlice({
             state.loading = false;
             state.sucess = true;
             state.error = null;
-            state.photos.map((photo)=>{
+            state.photos.map((photo) =>{
                 if(photo._id === action.payload.photo._id){
 
                     return photo.title = action.payload.photo.title

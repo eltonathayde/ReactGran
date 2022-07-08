@@ -5,7 +5,7 @@ import { uploads } from "../../utils/config"
 // component
 import Message from "../../components/Message"
 import { Link } from "react-router-dom"
-import { BsFillEyeFill,BsPencilFill,BsXlg } from "react-icons/bs"
+import { BsFillEyeFill,BsPencilFill, BsXLg } from "react-icons/bs"
 
 
 // hooks
@@ -120,7 +120,15 @@ const Profile = () => {
                     {photos && photos.map((photos) =>(
                         <div className="photo" key={photos._id}>
                             {photos.image && (<img src={`${uploads}/photos/${photos.image}`} alt={photos.title} />)}
-                            {id === userAuth._id ? (<p>actions</p>) : (<Link className="btn" to={`/photos/${photos._id}`}>Ver</Link>)}
+                            {id === userAuth._id ? (
+                                <div className="actions">
+                                    <Link to={`/photos/${photos._id}`}>
+                                        <BsFillEyeFill/>
+                                    </Link>
+                                    <BsPencilFill/>
+                                    <BsXLg/>
+                                </div>
+                            ) : (<Link className="btn" to={`/photos/${photos._id}`}>Ver</Link>)}
                        </div>
                     ))}
                     {photos.length === 0 && <p>Ainda não há fotos publicadas</p>}

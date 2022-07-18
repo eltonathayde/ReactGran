@@ -63,9 +63,9 @@ const updatePhoto = async(data,id, token) => {
 }
 
 // pegando a photo atraves do id
-const getPhoto = async (id) => {
+const getPhoto = async (id, token) => {
      
-    const config = requestConfig("GET")
+    const config = requestConfig("GET",null, token)
 
     try {
         

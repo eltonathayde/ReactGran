@@ -1,5 +1,4 @@
 import "./PhotoItem.css"
-
 import { uploads } from "../utils/config"
 
 import { Link } from "react-router-dom"

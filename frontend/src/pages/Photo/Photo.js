@@ -1,4 +1,4 @@
-import "./Photo.css"
+import  "./Photo.css"
 
 import { uploads } from "../../utils/config"
 
@@ -47,7 +47,7 @@ if(loading){
 }
 
   return (
-    <div className="photo">
+    <div id="photo">
         <PhotoItem photo={photo}/>
     </div>
   )

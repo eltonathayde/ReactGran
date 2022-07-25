@@ -79,7 +79,7 @@ const getPhoto = async (id, token) => {
     }
 }
 
-// fução de like 
+// função de like 
 
 const like = async(id,token) => {
 

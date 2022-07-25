@@ -103,7 +103,7 @@ export const getPhoto = createAsyncThunk(
 
 //  like da foto 
 
-export const likePhoto = createAsyncThunk(
+export const like = createAsyncThunk(
     "photo/like",
     async(id,thunkAPI) => {
         const token = thunkAPI.getState().auth.user.token
@@ -194,7 +194,8 @@ export const photoSlice= createSlice({
             state.loading = false;
             state.error = action.payload
             state.photo = {};
-        }).addCase(getPhoto.pending, (state) =>{
+        })
+        .addCase(getPhoto.pending, (state) =>{
             state.loading = true;
             state.error = false
         })
@@ -203,7 +204,8 @@ export const photoSlice= createSlice({
             state.sucess = true;
             state.error = null;
             state.photo = action.payload;
-        })  .addCase(likePhoto.fulfilled, (state, action) => {
+        })
+        .addCase(like.fulfilled, (state, action) => {
             state.loading = false;
             state.sucess = true;
             state.error = null;
@@ -215,14 +217,14 @@ export const photoSlice= createSlice({
             state.photos.map((photo) =>{
                 if(photo._id === action.payload.photo.photoId){
 
-                    return photo.likes.push(action.payload.photo.userId)
+                    return photo.likes.push(action.payload.userId)
                 }
                 return photo
             }) 
             state.message= action.payload.message
      
         })
-        .addCase(likePhoto.rejected, (state,action) => {
+        .addCase(like.rejected, (state,action) => {
             state.loading = false;
             state.error = action.payload
         })

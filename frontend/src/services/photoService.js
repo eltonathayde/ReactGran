@@ -121,7 +121,7 @@ const getPhotos = async(token) => {
 
     try {
         
-        const res = await (await fetch(api + "/photos", config).then((res)=>res.json)).catch(err => err)
+        const res = await  fetch(api + "/photos", config).then((res) => res.json()).catch((err) => err)
 
         return res
 

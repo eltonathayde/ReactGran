@@ -158,7 +158,7 @@ const likePhoto = async(req,res) =>{
 
     photo.save()
     
-    res.status(200).json({photoId: id, userId: reqUser._id,massage:"A foto foi curtida"})
+    res.status(200).json({photoId: id, userId: reqUser._id,message:"A foto foi curtida"})
 
 }
 

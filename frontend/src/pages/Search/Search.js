@@ -6,6 +6,7 @@ import "./Search.css"
 import { useEffect } from "react"
 import  {useSelector, useDispatch} from "react-redux"
 import { useResetComponetMessage  } from "../../hooks/useResetComponetMessage"
+import { useQuery } from "../../hooks/useQuery"
 
 //  Componets
 

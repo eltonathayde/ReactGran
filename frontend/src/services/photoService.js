@@ -155,7 +155,7 @@ const photoService = {
     like,
     comment,
     getPhotos,
-    searchPhotos,
+    searchPhotos
 }
 
 export default photoService;

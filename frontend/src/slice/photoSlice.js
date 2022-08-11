@@ -154,7 +154,7 @@ export const comment = createAsyncThunk(
     export const searchPhotos = createAsyncThunk("photo/search", async(query, thunkAPI) => {
         
         const token = thunkAPI.getState().auth.user.token
-        const data = await searchPhotos.getPhotos(query,token)
+        const data = await photoService.searchPhotos(query,token)
         
         return data
     } )
